@@ -14,13 +14,13 @@ export default {
   footer: true,
   footerText: (
     <>
-      <Logo /> Hike
+      <Logo /> <span style={{fontFamily: "Barlow"}}>Hike</span>
     </>
   ),
   footerEditOnGitHubLink: false, // will link to the docs repo
   logo: (
     <>
-      <Logo /> Hike
+      <Logo /> <span style={{ fontSize: 26, marginLeft: 5, fontWeight: 600 }}>Hike</span>
     </>
   ),
   head: (
@@ -29,6 +29,9 @@ export default {
       <meta name="description" content="Hike: GitHub Automation Apps" />
       <meta name="og:title" content="Hike: GitHub Automation Apps" />
       <link rel="icon" href="/hike.svg" />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet"></link>
     </>
   ),
 };
