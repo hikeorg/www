@@ -1,7 +1,7 @@
 import { styled } from "lib/css";
 
 const Glitch = styled("svg", {
-  display: "block",
+  display: "inline-block",
   path: {
     fill: "currentColor",
   }

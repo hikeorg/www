@@ -12,7 +12,7 @@ export default {
   customSearch: null, // customizable, you can use algolia for example
   darkMode: true,
   footer: true,
-  footerText: <Logo />,
+  footerText: <><Logo /> Hike</>,
   footerEditOnGitHubLink: true, // will link to the docs repo
   logo: <>
     <Logo /> Hike

@@ -2,7 +2,7 @@
 
 ### Onboard your teams faster
 
-Compass is designed to help your new team members onboard projects faster, helping them to explore repositories in a safe way while automating big part of the code review process.
+Compass is designed to help your new team members onboard projects gradually, helping them to explore repositories in a safe way while automating big part of the code review process for the rest of the team.
 
 ## Configuration
 
@@ -25,7 +25,7 @@ An array for all your rules
 An arbitrary name for your rule, it will be used as the GitHub `check` name if you set `check: true`
 
 ##### `rules?.check: boolean = false`
-When set to `true` it creates a `check` using GitHub Checks API, this will block the pull request in case any files `match` the provided globs.
+When set to `true`, your rule create a `check` using GitHub Checks API, which can be used to block the pull request from merging in case any files `match` the provided globs.
 
 ##### `rules.match: string[]`
 An array of glob strings following [micromatch](https://github.com/micromatch/micromatch) patterns that will match against the files included in the pull request.
@@ -48,9 +48,33 @@ rules:
       - "**/secrets.json"
       - "**/*.pem"
     comment: |- # creates a comment on the file
-      Seems you have committ secrets to the repository!
+      Hey there! Seems you have committed some secrets to the repository 😱
 ```
 
 This configuration will create a failed check on the pull request that you can use to prevent collaborators to merge their changes if any file exists that matches the glob patterns. It will also create a review comment on the offending file.
 
+### Use markdown in your comments
+
+```yml
+rules:
+  - name: graphql schema rules # the rule name
+    match: # globs to check for files on the pull request
+      - "**/.gql"
+    comment: |- # creates a comment on the file
+      :warning: Heads up!
+
+      You have edited some graphql schema files, always take into account the following:
+      
+      **When deleting a field**
+      - [ ] I've marked it as `@deprecated`
+      - [ ] I've communicated the decision to the rest of the team
+
+      **When adding new types**
+      - [ ] I'm using PascalCase for type names
+      - [ ] I've checked for naming collisions
+```
+
+You have full access to the [Github Flavored Markdown](https://guides.github.com/features/mastering-markdown/#GitHub-flavored-markdown) rules, including [emojis](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md) 💯!
+
+Make sure you add some pretty looking comments!
 
