@@ -4,8 +4,8 @@ export const { styled, css, global, keyframes, getCssString, theme } =
   createCss({
     theme: {
       colors: {
-        bg: "#000000",
-        fg: "#ffffff",
+        bg: "#ffffff",
+        fg: "#000000",
         selection: "gainsboro",
       },
       fonts: {
