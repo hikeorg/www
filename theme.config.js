@@ -1,10 +1,8 @@
 import { Logo } from "./components/Logo";
 
 export default {
-  repository: "https://github.com/hikeorg/hike-www", // project repo
-  docsRepository: "https://github.com/hikeorg/hike-www", // docs repo
-  branch: "master", // branch of docs
-  path: "/", // path of docs
+  github: 'https://github.com/ricardocasares/hike-www', // GitHub link in the navbar
+  docsRepositoryBase: 'https://github.com/ricardocasares/hike-www/blob/main',
   titleSuffix: " – Hike.sh",
   nextLinks: false,
   prevLinks: false,
@@ -17,7 +15,7 @@ export default {
       <Logo /> <span>Hike</span>
     </>
   ),
-  footerEditOnGitHubLink: false, // will link to the docs repo
+  footerEditLink: false, // will link to the docs repo
   logo: (
     <>
       <Logo /> <span style={{ fontSize: 26, marginLeft: 5, fontWeight: 600 }}>Hike</span>
