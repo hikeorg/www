@@ -1,40 +1,51 @@
 # Passport
 
-### License compliance checks
-
 Passport is designed to help your company to gradually adopt licensing policies, by inspecting all of your dependencies licenses we make sure your projects don't fall into any legal pitfalls.
 
-## Configuration
+## Configuration options
 
-```yml
-# .github/passport.yml
-check: true
-allow:
-  - MIT
-ignore:
-  - "some-package@1.1.0"
+### Check
+
+```tsx
+check: boolean = false;
 ```
 
-##### `check: boolean = false`
 When set to `true`, it will create a check using GitHub Checks API. You can use the check to prevent merges to happen in case some license is not compliant.
 
-##### `allow: string[] = ["MIT"]`
+### Allow
+
+```tsx
+allow: string[] = ["MIT"]
+```
+
 An array of valid SPDX licenses or expressions you wish to allow in your project.
 
-##### `ignore: string[]`
+### Ignore
+
+```tsx
+ignore: string[]
+```
+
 An array of dependencies you wish to ignore when they do not comply with your `allow` rules. They must be provided exactly as they appear in any of your `package.json` files.
 
 ## Usage examples
 
-### Allow MIT and ISC dependencies only
+### Allow only MIT
 
-```yml
+```yaml
 check: true
 allow:
   - MIT
-  - ISC
 ```
 
 This configuration will create a failed check on the pull request that you can use to prevent collaborators to merge their changes if any of the licenses of your dependencies is not either MIT or ISC.
 
+### Ignore packages
 
+```yaml
+check: true
+allow:
+  - MIT
+ignore:
+  - next@11.1.0
+```

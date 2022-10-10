@@ -1,67 +1,54 @@
 # Compass
 
-### Onboard your teams faster
-
 Compass is designed to help your new team members onboard projects gradually, helping them to explore repositories in a safe way while automating big part of the code review process for the rest of the team.
 
-## Configuration
+## Configuration options
 
-### Example
+### Rules
 
-```yaml
-rules:
-  - name: dangerous sql files
-    match:
-      - "**/*.sql"
-      - "database/**/*.*"
-    comment: |-
-      Be careful editing this files!
-  - name: commit lockfiles
-    check: true
-    skip: true
-    match: ["package.json", "!yarn.lock"]
-  - name: best practices graphql
-    match:
-      - "**/*.gql"
-    comment: |-
-      :warning:
-
-      When you update graphql schemas remember:
-
-      **When deleting fields**
-      - [ ] Mark fields as deprecated
-      - [ ] Delete fields after grace period
-
-      **When creating new types**
-      - [ ] Use PascalCase
-      - [ ] Check for duplicates
+```tsx
+rules: Rule[] = []
 ```
-
-#### `rules: Rule[] = []`
 
 Contains all the rules to be tested against your pull request files.
 
-#### `rules.match: string[]`
+#### Match
+
+```tsx
+rules.match: string[]
+```
 
 An array of glob strings following [micromatch](https://github.com/micromatch/micromatch) patterns that will match against the files included in the pull request.
 
-#### `rules.check: boolean = false`
+#### Check
+
+```tsx
+rules.check: boolean = false
+```
 
 When `true` will create a successful check when no matches are found. If any of the files matches with your globs, then a `failure` check will be created, which you can use to prevent merging the pull request.
 
-#### `rules.skip: boolean = false`
+#### Skip
+
+```tsx
+rules.skip: boolean = false
+```
 
 When the `check` configuration is set to `true`, the `skip: true` setting adds a `Skip` action to a failed check.
 
-#### `rules.comment: string`
+#### Comment
+
+```tsx
+rules.comment: string
+```
 
 Text to be used as the comment body, you can use [GitHub flavored markdown](https://guides.github.com/features/mastering-markdown/#GitHub-flavored-markdown), including [emojis](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md).
 
 ## Usage examples
 
-### Prevent secrets from being committed to the repo
+### No secrets committed
 
-```yml
+```yaml
 rules:
   - name: no secrets # the rule name
     check: true # this will create a failed check if any file matches
@@ -76,9 +63,9 @@ rules:
 
 This configuration will create a failed check on the pull request that you can use to prevent collaborators to merge their changes if any file exists that matches the glob patterns. It will also create a review comment on the offending file.
 
-### Use markdown in your comments
+### Markdown comments
 
-```yml
+```yaml
 rules:
   - name: graphql schema rules # the rule name
     match: # globs to check for files on the pull request

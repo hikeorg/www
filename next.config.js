@@ -1,3 +1,5 @@
-// next.config.js
-const withNextra = require('nextra')('nextra-theme-docs', './theme.config.js');
-module.exports = withNextra();
+const withNextra = require('nextra')('nextra-theme-docs', './theme.config.tsx');
+
+module.exports = withNextra({
+  reactStrictMode: true
+});
