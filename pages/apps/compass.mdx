@@ -1,4 +1,6 @@
-# Compass
+import { Compass } from "@/components/icons/Compass";
+
+# <Compass size={96} /> Compass
 
 Compass is designed to help your new team members onboard projects gradually, helping them to explore repositories in a safe way while automating big part of the code review process for the rest of the team.
 
@@ -46,24 +48,9 @@ Text to be used as the comment body, you can use [GitHub flavored markdown](http
 
 ## Usage examples
 
-### No secrets committed
-
-```yaml
-rules:
-  - name: no secrets # the rule name
-    check: true # this will create a failed check if any file matches
-    match: # globs to check for files on the pull request
-      - "**/.env"
-      - "**/.env.*"
-      - "**/secrets.json"
-      - "**/*.pem"
-    comment: |- # creates a comment on the file
-      Hey there! Seems you have committed some secrets to the repository 😱
-```
-
-This configuration will create a failed check on the pull request that you can use to prevent collaborators to merge their changes if any file exists that matches the glob patterns. It will also create a review comment on the offending file.
-
 ### Markdown comments
+
+You have full access to the [Github Flavored Markdown](https://guides.github.com/features/mastering-markdown/#GitHub-flavored-markdown) syntax, including [emojis](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md):
 
 ```yaml
 rules:
@@ -84,6 +71,19 @@ rules:
       - [ ] I've checked for naming collisions
 ```
 
-You have full access to the [Github Flavored Markdown](https://guides.github.com/features/mastering-markdown/#GitHub-flavored-markdown) rules, including [emojis](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md) 💯!
+### No secrets committed
 
-Make sure you add some pretty looking comments!
+```yaml
+rules:
+  - name: no secrets # the rule name
+    check: true # this will create a failed check if any file matches
+    match: # globs to check for files on the pull request
+      - "**/.env"
+      - "**/.env.*"
+      - "**/secrets.json"
+      - "**/*.pem"
+    comment: |- # creates a comment on the file
+      Hey there! Seems you have committed some secrets to the repository 😱
+```
+
+This configuration will create a failed check on the pull request that you can use to prevent collaborators to merge their changes if any file exists that matches the glob patterns. It will also create a review comment on the offending file.

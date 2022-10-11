@@ -1,4 +1,6 @@
-# Passport
+import { Passport } from "@/components/icons/Passport";
+
+# <Passport size={96} /> Passport
 
 Passport is designed to help your company to gradually adopt licensing policies, by inspecting all of your dependencies licenses we make sure your projects don't fall into any legal pitfalls.
 
@@ -12,13 +14,21 @@ check: boolean = false;
 
 When set to `true`, it will create a check using GitHub Checks API. You can use the check to prevent merges to happen in case some license is not compliant.
 
+### Skip
+
+```tsx
+skip: boolean = true;
+```
+
+When set to `true`, it will allow to skip a failed check when an offending license is found among the pull request changes.
+
 ### Allow
 
 ```tsx
 allow: string[] = ["MIT"]
 ```
 
-An array of valid SPDX licenses or expressions you wish to allow in your project.
+An array of valid [SPDX licenses or expressions](https://spdx.org/licenses/) you wish to allow in your project.
 
 ### Ignore
 
@@ -40,12 +50,16 @@ allow:
 
 This configuration will create a failed check on the pull request that you can use to prevent collaborators to merge their changes if any of the licenses of your dependencies is not either MIT or ISC.
 
-### Ignore packages
+### Ignoring dependencies
+
+Sometimes you don't have the time to look for an alternative or simply can't avoid using a dependency with a restricted license. For these situations, you can choose to ignore the offending dependencies by adding them to the `ignore` list:
 
 ```yaml
 check: true
 allow:
   - MIT
 ignore:
-  - next@11.1.0
+  - evilcorp@^11.1.0
 ```
+
+Make sure to add the dependency exactly as defined in your `package.json` file.
