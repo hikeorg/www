@@ -66,7 +66,19 @@ const config: DocsThemeConfig = {
       const { locale } = useRouter();
       return SEARCH_TEXT[locale];
     }
-  }
+  },
+  head: (
+    <>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="description" content="Hike: shortening the loop" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@ricardocasares" />
+      <meta property="og:title" content="Hike: shortening the loop" />
+      <meta property="og:description" content="Hike: shortening the loop" />
+      <meta name="msapplication-TileColor" content="#000000" />
+      <meta name="theme-color" content="#000000" />
+    </>
+  )
 };
 
 export default config;
