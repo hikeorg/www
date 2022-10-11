@@ -12,5 +12,8 @@ module.exports = withNextra({
   i18n: {
     locales: ['en-US', 'es-ES', 'ru-RU'],
     defaultLocale: 'en-US'
-  }
+  },
+  experimental: {
+    newNextLinkBehavior: true,
+  },
 });
