@@ -3,7 +3,8 @@ const withNextra = require('nextra')({
   themeConfig: './theme.config.tsx',
   unstable_flexsearch: {
     codeblocks: true
-  }
+  },
+  unstable_defaultShowCopyCode: true
 });
 
 module.exports = withNextra({
