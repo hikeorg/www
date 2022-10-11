@@ -9,7 +9,7 @@ const config: DocsThemeConfig = {
     link: "https://github.com/hikeorg/www"
   },
   footer: {
-    text: `Hike.sh`
+    text: <Logo size={24} />
   },
   feedback: {
     content: "Leave your feedback",
