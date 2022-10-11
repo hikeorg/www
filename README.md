@@ -1,3 +1,3 @@
 # hike.sh
 
-Main website and documentation
+Main website and documentation for [hike.sh](https://hike.sh)
