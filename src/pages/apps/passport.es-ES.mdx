@@ -1,0 +1,65 @@
+import { Passport } from "@/components/icons/Passport";
+
+# <Passport size={96} /> Passport
+
+Passport está diseñado para ayudar a su empresa a adoptar gradualmente políticas de licencias, al inspeccionar todas las licencias de sus dependencias, nos aseguramos de que sus proyectos no caigan en ninguna trampa legal.
+
+## Opciones de configuración
+
+### Check
+
+```tsx
+check: boolean = false;
+```
+
+Cuando se establece en `true`, creará una verificación utilizando la API de verificación de GitHub. Puede usar la verificación para evitar que se produzcan fusiones en caso de que alguna licencia no sea compatible.
+
+### Skip
+
+```tsx
+skip: boolean = true;
+```
+
+Cuando se establece en `true`, permitirá omitir una verificación fallida cuando se encuentre una licencia infractora entre los cambios de la solicitud de extracción.
+
+### Allow
+
+```tsx
+allow: string[] = ["MIT"]
+```
+
+Un arreglo de [licencias o expresiones de SPDX](https://spdx.org/licenses/) válidas que desea permitir en su proyecto.
+
+### Ignore
+
+```tsx
+ignore: string[]
+```
+
+Un arreglo de dependencias que desea ignorar cuando no cumplen con sus reglas de `allow`. Deben proporcionarse exactamente como aparecen en cualquiera de sus archivos `package.json`.
+
+## Ejemplos de uso
+
+### Permitir solo MIT
+
+```yaml
+check: true
+allow:
+  - MIT
+```
+
+Esta configuración creará una verificación fallida en la solicitud de extracción que puede usar para evitar que los colaboradores combinen sus cambios si alguna de las licencias de sus dependencias no es MIT o ISC.
+
+### Ignorando las dependencias
+
+A veces no tienes tiempo para buscar una alternativa o simplemente no puedes evitar usar una dependencia con una licencia restringida. Para estas situaciones, puede optar por ignorar las dependencias infractoras agregándolas a la lista "ignorar":
+
+```yaml
+check: true
+allow:
+  - MIT
+ignore:
+  - evilcorp@^11.1.0
+```
+
+Asegúrese de agregar la dependencia exactamente como se define en su archivo `package.json`.

@@ -1,0 +1,89 @@
+import { Compass } from "@/components/icons/Compass";
+
+# <Compass size={96} /> Compass
+
+Compass está diseñado para ayudar a los nuevos miembros de su equipo a incorporar proyectos gradualmente, ayudándolos a explorar repositorios de manera segura mientras automatiza gran parte del proceso de revisión de código para el resto del equipo.
+
+## Opciones de configuración
+
+### Rules
+
+```tsx
+rules: Rule[] = []
+```
+
+Contiene todas las reglas que se compararan contra los archivos incluidos en tu pull request.
+
+#### Match
+
+```tsx
+rules.match: string[]
+```
+
+Una arreglo de patrones glob [micromatch](https://github.com/micromatch/micromatch) que tratarán de coincidir con los archivos incluidos en tu pull request.
+
+#### Check
+
+```tsx
+rules.check: boolean = false
+```
+
+Configurado como `true` creará una verificación exitosa cuando ninguna regla coincide con los archivos de pull request. Si alguno de los archivos coincide con los globs, se creará una verificación fallida, que puede usar para prevenir un merge.
+
+#### Skip
+
+```tsx
+rules.skip: boolean = false
+```
+
+Cuando la configuración `check` se establece en `true`, la configuración `skip: true` agrega la acción `Skip` a una verificación fallida.
+
+#### Comment
+
+```tsx
+rules.comment: string
+```
+
+Texto que se usará como cuerpo del comentario, puedes usar [markdown igual que en GitHub](https://guides.github.com/features/mastering-markdown/#GitHub-flavored-markdown), incluso también [emojis](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md).
+
+## Ejemplos de uso
+
+### Comentarios con markdown
+
+Tiene acceso completo a la sintaxis [Github Flavored Markdown](https://guides.github.com/features/mastering-markdown/#GitHub-flavored-markdown), incluidos [emojis](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md):
+
+```yaml
+rules:
+  - name: reglas del esquema graphql # el nombre de la regla
+    match: # globs para coincidir archivos
+      - "**/.gql"
+    comment: |- # crea un comentario en el archivo
+      :advertencia: ¡Cuidado!
+
+      Ha editado algunos archivos de esquema graphql, siempre tenga en cuenta lo siguiente:
+
+      **Al eliminar un campo**
+      - [ ] Lo he marcado como `@deprecated`
+      - [ ] He comunicado la decisión al resto del equipo
+
+      **Al agregar nuevos tipos**
+      - [ ] Estoy usando PascalCase para escribir nombres
+      - [ ] He comprobado las colisiones de nombres
+```
+
+### Sin secretos
+
+```yaml
+rules:
+  - name: sin secretos # el nombre de la regla
+    check: true # esto creará una verificación fallida si algún archivo coincide
+    match: # globs para coincidir archivos
+      - "**/.env"
+      - "**/.env.*"
+      - "**/secrets.json"
+      - "**/*.pem"
+    comment: |- # crea un comentario en el archivo
+      ¡Hola! Parece que has enviado algunos secretos al repositorio 😱
+```
+
+Esta configuración creará una verificación fallida en tu pull request que puedes usar para evitar que los colaboradores hagan un merge con sus cambios si existe algún archivo que coincida con los patrones glob. También creará un comentario de revisión en el archivo que contiene secretos.
