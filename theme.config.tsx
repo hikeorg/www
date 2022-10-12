@@ -3,27 +3,27 @@ import { DocsThemeConfig } from "nextra-theme-docs";
 import { Logo } from "@/components/Logo";
 
 const TOC_TEXT = {
-  "en-US": "On this page",
-  "es-ES": "En esta página",
-  "ru-RU": "На этой странице",
+  "en": "On this page",
+  "es": "En esta página",
+  "ru": "На этой странице",
 };
 
 const EDIT_TEXT = {
-  "en-US": "Edit this page",
-  "es-ES": "Edita esta página",
-  "ru-RU": "Изменить эту страницу",
+  "en": "Edit this page",
+  "es": "Edita esta página",
+  "ru": "Изменить эту страницу",
 };
 
 const FEEDBACK_TEXT = {
-  "en-US": "Submit your feedback",
-  "es-ES": "Danos tu opinión",
-  "ru-RU": "Отправьте свой отзыв",
+  "en": "Submit your feedback",
+  "es": "Danos tu opinión",
+  "ru": "Отправьте свой отзыв",
 };
 
 const SEARCH_TEXT = {
-  "en-US": "Search documentation...",
-  "es-ES": "Buscar en la documentación...",
-  "ru-RU": "Поиск документации...",
+  "en": "Search documentation...",
+  "es": "Buscar en la documentación...",
+  "ru": "Поиск документации...",
 };
 
 const config: DocsThemeConfig = {
@@ -45,9 +45,9 @@ const config: DocsThemeConfig = {
     labels: "documentation"
   },
   i18n: [
-    { locale: "en-US", text: "English" },
-    { locale: "es-ES", text: "Español" },
-    { locale: "ru-RU", text: "Русский" },
+    { locale: "en", text: "English" },
+    { locale: "es", text: "Español" },
+    { locale: "ru", text: "Русский" },
   ],
   editLink: {
     text() {

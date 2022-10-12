@@ -10,8 +10,8 @@ const withNextra = require('nextra')({
 module.exports = withNextra({
   reactStrictMode: true,
   i18n: {
-    locales: ['en-US', 'es-ES', 'ru-RU'],
-    defaultLocale: 'en-US'
+    locales: ['en', 'es', 'ru'],
+    defaultLocale: 'en'
   },
   experimental: {
     newNextLinkBehavior: true,
