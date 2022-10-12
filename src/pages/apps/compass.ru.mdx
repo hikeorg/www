@@ -52,7 +52,7 @@ rules.comment: string
 
 У вас есть полный доступ к синтаксису [Github Flavored Markdown](https://guides.github.com/features/mastering-markdown/#GitHub-flavored-markdown), включая [смайлики](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md):
 
-```yaml
+```yaml filename=".github/compass.yaml"
 rules:
   - name: graphql schema rules # the rule name
     match: # globs to check for files on the pull request
@@ -73,7 +73,7 @@ rules:
 
 ### Никаких секретов
 
-```yaml
+```yaml filename=".github/compass.yaml"
 rules:
   - name: no secrets # имя правила
     check: true # это создаст неудачную проверку, если какой-либо файл соответствует

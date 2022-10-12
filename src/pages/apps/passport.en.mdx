@@ -42,7 +42,7 @@ An array of dependencies you wish to ignore when they do not comply with your `a
 
 ### Allow only MIT
 
-```yaml
+```yaml filename=".github/passport.yaml"
 check: true
 allow:
   - MIT
@@ -54,7 +54,7 @@ This configuration will create a failed check on the pull request that you can u
 
 Sometimes you don't have the time to look for an alternative or simply can't avoid using a dependency with a restricted license. For these situations, you can choose to ignore the offending dependencies by adding them to the `ignore` list:
 
-```yaml
+```yaml filename=".github/passport.yaml"
 check: true
 allow:
   - MIT

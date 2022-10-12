@@ -42,7 +42,7 @@ Un arreglo de dependencias que desea ignorar cuando no cumplen con sus reglas de
 
 ### Permitir solo MIT
 
-```yaml
+```yaml filename=".github/passport.yaml"
 check: true
 allow:
   - MIT
@@ -54,7 +54,7 @@ Esta configuración creará una verificación fallida en la solicitud de extracc
 
 A veces no tienes tiempo para buscar una alternativa o simplemente no puedes evitar usar una dependencia con una licencia restringida. Para estas situaciones, puede optar por ignorar las dependencias infractoras agregándolas a la lista "ignorar":
 
-```yaml
+```yaml filename=".github/passport.yaml"
 check: true
 allow:
   - MIT

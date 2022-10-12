@@ -52,7 +52,7 @@ Texto que se usará como cuerpo del comentario, puedes usar [markdown igual que 
 
 Tiene acceso completo a la sintaxis [Github Flavored Markdown](https://guides.github.com/features/mastering-markdown/#GitHub-flavored-markdown), incluidos [emojis](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md):
 
-```yaml
+```yaml filename=".github/compass.yaml"
 rules:
   - name: reglas del esquema graphql # el nombre de la regla
     match: # globs para coincidir archivos
@@ -73,7 +73,7 @@ rules:
 
 ### Sin secretos
 
-```yaml
+```yaml filename=".github/compass.yaml"
 rules:
   - name: sin secretos # el nombre de la regla
     check: true # esto creará una verificación fallida si algún archivo coincide
