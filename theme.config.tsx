@@ -27,6 +27,9 @@ const SEARCH_TEXT = {
 };
 
 const config: DocsThemeConfig = {
+  chat: {
+    icon: ""
+  },
   getNextSeoProps() {
     return {
       defaultTitle: "Hike",
