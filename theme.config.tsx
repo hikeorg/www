@@ -27,8 +27,13 @@ const SEARCH_TEXT = {
 };
 
 const config: DocsThemeConfig = {
+  getNextSeoProps() {
+    return {
+      defaultTitle: "Hike",
+      titleTemplate: "%s | Hike"
+    }
+  },
   logo: Logo,
-  titleSuffix: " - Hike",
   docsRepositoryBase: "https://github.com/hikeorg/www",
   navigation: false,
   project: {
